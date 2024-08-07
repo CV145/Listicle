@@ -1,4 +1,5 @@
 import express from 'express'
+import destRouter from './routes/destinations.js'
 
 const app = express();
 
@@ -8,6 +9,9 @@ app.use('/public', express.static('./public'))
 
 //serve files from client\public\scripts
 app.use('/scripts', express.static('./public/scripts'))
+
+//endpoint returning json data
+app.use('/destinations', destRouter)
 
 //route for root URL of server
 app.get('/', (req, res) => {
