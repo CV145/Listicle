@@ -23,25 +23,16 @@ function displayDestinations() {
         card.className = 'destination-card';
         card.innerHTML = `
             <header>
-                <h2><a href="#${destination.id}" onclick="displayDetailedView(${destination.id})">${destination.name}</a></h2>
+                <h2>${destination.name}</h2>
             </header>
             <img src="${destination.imageUrl}" alt="${destination.name}">
-            <p><strong>Main Attractions:</strong> ${destination.attractions.join(', ')}</p>
-            <p><strong>Best Time to Visit:</strong> ${destination.bestTimeToVisit}</p>
-            <p><strong>Travel Tips:</strong> ${destination.travelTips}</p>
-            <p><strong>Average Cost:</strong> ${destination.averageCost}</p>
         `;
+        card.addEventListener('click', () => displayDetailedView(destination));
         container.appendChild(card);
     });
 }
 
-function displayDetailedView(destinationId) {
-    const destination = destinations.find(d => d.id === parseInt(destinationId));
-    if (!destination) {
-        displayNotFound();
-        return;
-    }
-
+function displayDetailedView(destination) {
     const detailedView = document.getElementById('detailed-view');
     detailedView.style.display = 'block';
     detailedView.innerHTML = `
@@ -62,12 +53,6 @@ function displayDetailedView(destinationId) {
     document.getElementById('main-content').style.display = 'none';
 }
 
-function displayNotFound() {
-    document.getElementById('main-content').style.display = 'none';
-    document.getElementById('detailed-view').style.display = 'none';
-    document.getElementById('not-found').style.display = 'block';
-}
-
 function goBack() {
     document.getElementById('main-content').style.display = 'block';
     document.getElementById('detailed-view').style.display = 'none';
@@ -77,7 +62,12 @@ function goBack() {
 window.addEventListener('hashchange', () => {
     const destinationId = window.location.hash.substring(1);
     if (destinationId) {
-        displayDetailedView(destinationId);
+        const destination = destinations.find(d => d.id === parseInt(destinationId));
+        if (destination) {
+            displayDetailedView(destination);
+        } else {
+            displayNotFound();
+        }
     } else {
         goBack();
     }
@@ -88,6 +78,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     await fetchDestinations();
     if (window.location.hash) {
         const destinationId = window.location.hash.substring(1);
-        displayDetailedView(destinationId);
+        const destination = destinations.find(d => d.id === parseInt(destinationId));
+        if (destination) {
+            displayDetailedView(destination);
+        } else {
+            displayNotFound();
+        }
     }
 });
