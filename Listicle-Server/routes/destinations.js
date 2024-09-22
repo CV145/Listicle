@@ -12,4 +12,9 @@ router.get('/', (req, res) => {
     res.status(200).json(destinationData)
 });
 
+// Add a 404 handler for non-matching routes
+router.use((req, res) => {
+    res.status(404).send('404 - Page Not Found');
+});
+
 export default router;
