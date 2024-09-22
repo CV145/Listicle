@@ -6,7 +6,7 @@ const destinations = [
         attractions: ["Lost Mine Trail", "Santa Elena Canyon", "South Rim Trail"],
         bestTimeToVisit: "October to April",
         travelTips: "Carry plenty of water and be prepared for changing weather!",
-        averageCost: "$"
+        averageCost: "$30 per vehicle for a 7-day pass"
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const destinations = [
         attractions: ["Guadalupe Peak", "Devil's Hall Trail", "McKittrick Canyon"],
         bestTimeToVisit: "September to May",
         travelTips: "Start hikes early in the day to avoid afternoon thunderstorms.",
-        averageCost: "$"
+        averageCost: "$15 per person for a 7-day pass"
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const destinations = [
         attractions: ["Summit Trail", "Loop Trail", "Echo Canyon Trail"],
         bestTimeToVisit: "October to April",
         travelTips: "Weekdays are less crowded; bring a flashlight for cave exploration.",
-        averageCost: "$"
+        averageCost: "$8 per person for day use"
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ const destinations = [
         attractions: ["Lighthouse Trail", "Givens, Spicer & Lowry Trail", "Capitol Peak"],
         bestTimeToVisit: "March to May",
         travelTips: "Wear sturdy shoes and bring sunscreen; the trails can be rocky and exposed.",
-        averageCost: "$"
+        averageCost: "$8 per person for day use"
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ const destinations = [
         attractions: ["Wolf Mountain Trail", "Twin Falls Nature Trail", "Pedernales Falls"],
         bestTimeToVisit: "October to April",
         travelTips: "Check river conditions before visiting; trails can be slippery when wet.",
-        averageCost: "$"
+        averageCost: "$6 per person for day use"
     }
 ];
 
